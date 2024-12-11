@@ -1,0 +1,59 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+TAF-Mobile/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+TAF-Mobile/obj/Debug/TAF-Mobile.csproj.FileListAbsolute.txt
+TAF-Reporting/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+TAF-Reporting/obj/Debug/TAF-Reporting.csproj.FileListAbsolute.txt
+bin/
+obj/
+Debug/
+Release/
+*.vs
+packages/
+ScriptmateReport/
+Screenshots/
+/TAF-Scripting/SelfHeal-results
+/TAF-Scripting/allure-results/f905b9c6ca5347a18311e028ab2d282d-container.json
+/TAF-Scripting/allure-results/88a3702cf70949ca9e344e7af27825c9-container.json
+/TAF-Scripting/allure-results/33560ea62c624d28ae9cc3a8bec911b4-result.json
+/TAF-Scripting/Extent-Report
+/TAF-Scripting/Resources/DataFiles/TestData_BurBerryBrand.xlsx
+/TAF-Scripting/allure-results
+/TAF-Scripting/Drivers/chromedriverTest.exe
+/TAF-Scripting/Drivers/chromedriver_old.exe
+/TAF-Scripting/Features/SVC/SVC Regression.feature.cs
+/TAF-Scripting/Resources/DataFiles/TestDataSVCRegression - Copy.xlsx
+/TAF-Scripting/Resources/DataFiles/TestDataSVCSmoke - Copy.xlsx
+/TAF-Scripting/Resources/DataFiles/~$TestDataSVCRegression.xlsx
+/TAF-Scripting/Resources/DataFiles
+/TAF-Scripting/Drivers/chromedriver2.exe
+/DryRun.playlist
+/TAF-Scripting/TAFHooksOld.cs
+/TAF-SAP/app.config
+/TAF-Scripting/Features/SVC/SVCTestDataCreation.feature
+/TAF-Scripting/Features/SVC
+/TAF-Scripting/Test/Scripted/StepDefinitions
+/skriptmatecsharp
+/EnactorPerformanceTool
+/TAF-Scripting/Features/SVC - Copy

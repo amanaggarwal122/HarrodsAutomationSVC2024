@@ -1,0 +1,1525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.1.62\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.1.62\build\SpecFlow.Tools.MsBuild.Generation.props')" />
+  <Import Project="..\packages\SpecFlow.NUnit.3.1.62\build\SpecFlow.NUnit.props" Condition="Exists('..\packages\SpecFlow.NUnit.3.1.62\build\SpecFlow.NUnit.props')" />
+  <Import Project="..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
+  <Import Project="..\packages\Microsoft.NET.Test.Sdk.16.4.0\build\net40\Microsoft.NET.Test.Sdk.props" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.16.4.0\build\net40\Microsoft.NET.Test.Sdk.props')" />
+  <Import Project="..\packages\Microsoft.CodeCoverage.16.4.0\build\netstandard1.0\Microsoft.CodeCoverage.props" Condition="Exists('..\packages\Microsoft.CodeCoverage.16.4.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74DD8439-81FB-4012-A465-B85E8A31A321}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TAF_Scripting</RootNamespace>
+    <AssemblyName>TAF-Scripting</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Allure.Commons, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalDll\Allure.Commons.dll</HintPath>
+    </Reference>
+    <Reference Include="Allure.SpecFlowPlugin, Version=3.0.225.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow3.Allure.3.0.225\lib\net45\Allure.SpecFlowPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="BoDi, Version=1.4.1.0, Culture=neutral, PublicKeyToken=ff7cd5ea2744b496, processorArchitecture=MSIL">
+      <HintPath>..\packages\BoDi.1.4.1\lib\net45\BoDi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.5\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Crc32C.NET, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Crc32C.NET.1.0.5.0\lib\net20\Crc32C.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=12.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.12.2.1\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Cucumber.Messages, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b10c5988214f940c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cucumber.Messages.6.0.1\lib\net45\Cucumber.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="DnsClient, Version=1.2.0.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.2.0\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.8.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.8.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamitey, Version=2.0.9.136, Culture=neutral, PublicKeyToken=cbf53ea3aeb972c6, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dynamitey.2.0.9.136\lib\net40\Dynamitey.dll</HintPath>
+    </Reference>
+    <Reference Include="ExtentReports, Version=4.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExtentReports.4.0.3\lib\ExtentReports.dll</HintPath>
+    </Reference>
+    <Reference Include="Gherkin, Version=6.0.0.0, Culture=neutral, PublicKeyToken=86496cfa5b4a5851, processorArchitecture=MSIL">
+      <HintPath>..\packages\Gherkin.6.0.0\lib\net45\Gherkin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.45.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.45.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.45.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.45.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.45.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.45.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.45.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.45.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Gmail.v1, Version=1.45.0.1950, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Gmail.v1.1.45.0.1950\lib\net45\Google.Apis.Gmail.v1.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.45.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.45.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.7.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.7.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.23.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.23\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Magick.NET-Q8-AnyCPU, Version=7.9.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\Magick.NET-Q8-AnyCPU.7.9.0.1\lib\net40\Magick.NET-Q8-AnyCPU.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.2.6.0\lib\net46\MailKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics365.UIAutomation.Api, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dynamics365.UIAutomation.Api.9.1.0.12013\lib\net46\Microsoft.Dynamics365.UIAutomation.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics365.UIAutomation.Api.UCI, Version=1.0.19282.1210, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dynamics365.UIAutomation.Api.9.1.0.12013\lib\net46\Microsoft.Dynamics365.UIAutomation.Api.UCI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics365.UIAutomation.Browser, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dynamics365.UIAutomation.Api.9.1.0.12013\lib\net46\Microsoft.Dynamics365.UIAutomation.Browser.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualStudio.CodeCoverage.Shim, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeCoverage.16.4.0\lib\net45\Microsoft.VisualStudio.CodeCoverage.Shim.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MimeKit, Version=2.6.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.2.6.0\lib\net46\MimeKit.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeTypesMap, Version=1.0.8.0, Culture=neutral, PublicKeyToken=1b320cc08ad5aa89, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeTypesMap.1.0.8\lib\net452\MimeTypesMap.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.9.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.9.3\lib\net452\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.9.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.9.3\lib\net452\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.9.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.9.3\lib\net452\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NUnit.Allure, Version=1.0.6.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.Allure.1.0.6.2\lib\net45\NUnit.Allure.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Otp.NET, Version=1.2.1.0, Culture=neutral, PublicKeyToken=38a48df817e173a6, processorArchitecture=MSIL">
+      <HintPath>..\packages\Otp.NET.1.2.1\lib\net45\Otp.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="PactNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PactNet.2.5.2\lib\net45\PactNet.dll</HintPath>
+    </Reference>
+    <Reference Include="QaKit.FileComparer, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QaKit.FileComparer.1.0.2\lib\net461\QaKit.FileComparer.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2020.0.2.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2020.0.2\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="sapfewse, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\SAP.GUI.Scripting.net.1.0.0\lib\net\sapfewse.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="saprotwr.net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SAP.GUI.Scripting.net.1.0.0\lib\net\saprotwr.net.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Selenium.WebDriverBackedSelenium, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriverBackedSelenium.3.141.0\lib\net45\Selenium.WebDriverBackedSelenium.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SeleniumExtras.PageObjects, Version=3.12.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.Core.3.12.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpCompress, Version=0.24.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCompress.0.24.0\lib\net45\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="Snappy.NET, Version=1.1.1.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Snappy.NET.1.1.1.8\lib\net45\Snappy.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Assist.Dynamic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.Assist.Dynamic.1.4.2\lib\net461\SpecFlow.Assist.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.4.6.0\lib\net461\System.CodeDom.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.6.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.7.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.4.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.6.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.4.6.0\lib\net461\System.Security.Permissions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.6.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow, Version=3.1.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.3.1.62\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow.NUnit.SpecFlowPlugin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpecFlow.NUnit.3.1.62\lib\net45\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Utf8Json, Version=1.3.7.0, Culture=neutral, PublicKeyToken=8a73d3ba7e392e27, processorArchitecture=MSIL">
+      <HintPath>..\packages\Utf8Json.1.3.7\lib\net45\Utf8Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WDSE, Version=0.1.5.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Noksa.WebDriver.ScreenshotsExtensions.0.1.5.3\lib\net46\WDSE.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Winium.WebDriver, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalDll\Winium.WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="XmlDiffPatch, Version=1.0.8.28, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\XMLDiffPatch.1.0.8.28\lib\net\XmlDiffPatch.dll</HintPath>
+    </Reference>
+    <Reference Include="XmlDiffPatch.View, Version=1.0.1493.40755, Culture=neutral">
+      <HintPath>..\packages\XMLDiffPatch.1.0.8.28\lib\net\XmlDiffPatch.View.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Features\SVC\Others_To_SSC_Release.feature.cs" />
+    <Compile Include="Features\SVC\SCAYLE_SSC_Validation.feature.cs" />
+    <Compile Include="Features\SVC\SCAYLE_SSC_Creation.feature.cs" />
+    <Compile Include="Features\SVC\SMC_Regression.feature.cs" />
+    <Compile Include="Features\SVC\SSC_Regression - Creation.feature.cs" />
+    <Compile Include="Features\SVC\SSC_Regression - Validation.feature.cs" />
+    <Compile Include="Features\Archive\SVC\SSC_Regression.feature.cs" />
+    <Compile Include="Features\SVC\SSC_To_Others_Release.feature.cs" />
+    <Compile Include="Features\SVC\SVC Bulk User.feature.cs" />
+    <Compile Include="Features\Archive\SVC\SVC Optimization Regn.feature.cs" />
+    <Compile Include="Features\Archive\SVC\SVC Regression.feature.cs" />
+    <Compile Include="Features\Archive\SVC\SVCSmoke.feature.cs" />
+    <Compile Include="Features\Archive\SVC\SVC_Regr_TestData.feature.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TAFHooks.cs" />
+    <Compile Include="Test\CommonFunctions.cs" />
+    <Compile Include="Test\Common\ShadowDomHelper.cs" />
+    <Compile Include="Test\Common\DataFilesUtil.cs" />
+    <Compile Include="Test\Configuration.cs" />
+    <Compile Include="Test\Scripted\PageObjects\FF\AddNewAddress.cs" />
+    <Compile Include="Test\Scripted\PageObjects\FF\CommunicationPreferencePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\RecordQualifiers.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPCARTransTable.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPChangeTableDataView.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPCreateHUWT.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPCreateProductWT.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPCreateShipment.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPInboundDelivery.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPmerchandiseDistribution.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPPickAllocForSF.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPPOSWorkbench.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPRepacking.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPNestingProcess.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPMezzRepacking.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPDispatchProcess.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPDisplaySalesOrder.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPGotoTransaction.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPMonitorScreenCommon.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPMonitorScreenProcess.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPOrderVerificationPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPOutboundDelivery.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPPickingProcess.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPStockAdjustment.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPStockOverview.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPTrunckingODC.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPWebEmulator.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPWorkCenterPacking.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCAYLE\ScayleUserCommPrefPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCAYLE\ScayleUserCommunicationPreferencesPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCAYLE\ScayleUserManageAddressesPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCAYLE\ScaylePersonalDetailsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCAYLE\ScayleYopmail.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCAYLE\ScayleUserRegistrationPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCAYLE\ScayleUserLoginPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCV\CustomerProfilePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCV\CustomerSearchPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCV\SCVLoginPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCV\SCVSecureCheckoutPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SCV\SCVVerifyOrderDetailsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\Archive\ACHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\AC\ACLoginPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\AC\ACOptionsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\AC\ACProductsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\AC\ACReportsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\CDC\CDCLoginPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\CDC\CDCUserHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFHarrodsHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserAccountBirthdayPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserAccountHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserAccountManageAddressesPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserAccountMenuSelection.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserCommunicationPreferencesPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserManageAddressesPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserMiniHarrodsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserMyBeautyPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserOrdersandReturnsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserPaymentCardsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserPersonalDetailsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserReferAFriendPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserRegistrationPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserRewardsStatementsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserSignInPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserSignOutPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserUpdateEmailAddressPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFUserUpdatePasswordPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\FF\FFYopmail.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\Archive\HarrodsHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\IDS\IDSHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\Archive\SMCHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SMC\SMCCampaignsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SMC\SMCContactProfilePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SMC\SMCContactsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SMC\SMCHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SMC\SMCLoginPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\Archive\SSCHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCardManagementReplenishmentPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCardManagementRewardCardsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerCampaignsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerChangesPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerContactDetailsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerDataPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerInteractionsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerLeadsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerMergePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerOverviewPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerPreferencesPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerPurchasesPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerRelationshipsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomersPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerSurveyResultsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerTicketsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCCustomerTransactionsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCGroupAccountsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCServiceTicketsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCUserHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SVC\SSC\SSCUserLoginPage.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\CommunicationSubscriptionSteps.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\CustomerRegistration.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\OrderCancellationSCV.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\OrderCreationCommon.cs" />
+    <Compile Include="Test\Scripted\PageObjects\FF\AccountPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\CRM\CustomerDetailsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\CRM\SearchCustomerPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\FF\HomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPProductDetailsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPProductSearchPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\FF\OrderBagPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\FF\ProductDetailsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\FF\ProductListPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\FF\SecureCheckoutPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\FF\VerifyOrderDetailsPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\FF\RegistrationPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\SAP\SAPWarehouseMonitorPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\STORM\STORMHomePage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\STORM\STORMLoginPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\STORM\STORMOrderPage.cs" />
+    <Compile Include="Test\Scripted\PageObjects\STORM\STORMProductPage.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\SAPOrderDispatch.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\SAPOrderVerificationSteps.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\SAP\SAPCAR.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\SAP\SAP_CAR_RETAIL.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\SCVOrderCreationCommon.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\SAPStock_Adjustment.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\SMC\CreateCampaign.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\StormOrderProcess.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\Archive\SVCUserDataVerificationSteps.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\CDC_Home.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\SCAYLE\SCAYLE_SVC_Home.cs" />
+    <Compile Include="Test\Scripted\StepDefinitions\SVC_Home.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="allureConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="bin\Debug\allureConfig.json" />
+    <None Include="bin\Debug\log4net.config" />
+    <None Include="bin\Debug\TAF-Mobile.dll.config" />
+    <None Include="bin\Debug\TAF-Scripting.dll.config" />
+    <None Include="bin\Debug\TAF-WebServices.dll.config" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\bin\allure" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\bin\allure.bat" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\config\allure-cucumber.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\config\allure-junit.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\config\allure.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\config\jetty-logging.properties" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\config\log4j.properties" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\behaviors-plugin\allure-plugin.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\custom-logo-plugin\allure-plugin.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\jira-plugin\allure-plugin.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\junit-xml-plugin\allure-plugin.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\packages-plugin\allure-plugin.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\screen-diff-plugin\allure-plugin.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\trx-plugin\allure-plugin.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xctest-plugin\allure-plugin.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xray-plugin\allure-plugin.yml" />
+    <None Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xunit-xml-plugin\allure-plugin.yml" />
+    <None Include="Features\Archive\AmanArea\7_Customer upgradeDowngrade_Regression.feature" />
+    <None Include="Features\Archive\AmanArea\8_Customer_updates_Regression.feature" />
+    <None Include="Features\Archive\AmanArea\Miscelleneous_Regression.feature" />
+    <None Include="Features\Archive\AmanArea\5_CST_Account_Hierarchy_Regression.feature" />
+    <None Include="Features\Archive\AmanArea\6_CST_CustomerAndPoints_Regression.feature" />
+    <None Include="Features\Archive\AmanArea\9_Customer_Service_Regression.feature" />
+    <None Include="Features\Archive\AmanArea\3_Card_Management_Regression.feature" />
+    <None Include="Features\Archive\AmanArea\2_Account_Merge_Regression.feature" />
+    <None Include="Features\Archive\AmanArea\10_Staff_Regression.feature" />
+    <None Include="Features\Archive\AmanArea\1_Online_FullAccount_Regression.feature" />
+    <None Include="Features\Archive\SVC\SSC_Regression - Creation.feature" />
+    <None Include="Features\Archive\SVC\SSC_Regression - Validation.feature" />
+    <None Include="Features\SVC\Others_To_SSC_Release.feature" />
+    <None Include="Features\SVC\SCAYLE_SSC_Validation.feature" />
+    <None Include="Features\SVC\SMC_Regression.feature" />
+    <None Include="Features\SVC\SCAYLE_SSC_Creation.feature" />
+    <None Include="Features\SVC\SSC_Regression - Creation.feature" />
+    <None Include="Features\SVC\SSC_Regression - Validation.feature" />
+    <None Include="Features\Archive\SVC\SSC_Regression.feature" />
+    <None Include="Features\Archive\SVC\SVC Optimization Regn.feature" />
+    <None Include="Features\Archive\SVC\SVC_Regr_TestData.feature" />
+    <None Include="Features\SVC\SSC_To_Others_Release.feature" />
+    <None Include="Features\SVC\SVC Bulk User.feature" />
+    <None Include="Features\Archive\SVC\SVC Regression.feature" />
+    <None Include="Features\Archive\SVC\SVCSmoke.feature" />
+    <None Include="Resources\Autoit\FFLogin.au3" />
+    <None Include="Resources\DataFiles\BulkUserCreation.xlsx" />
+    <None Include="Resources\DataFiles\SCAYLETestDataSSC.xlsx" />
+    <None Include="Resources\DataFiles\SVCTestDataCreation.xlsx" />
+    <None Include="Resources\DataFiles\TestDataSSCRegression.xlsx" />
+    <None Include="Resources\DataFiles\TestDataSSCRegressionUpgrade.xlsx" />
+    <None Include="Resources\DataFiles\TestDataSSCRegressionUpgradeScayle.xlsx" />
+    <None Include="Resources\DataFiles\TestDataSVCOptimizationRegn.xlsx" />
+    <None Include="Resources\DataFiles\TestDataSVCRegression.xlsx" />
+    <None Include="Resources\DataFiles\TestDataSVCSmoke.xlsx" />
+    <None Include="Resources\Email\credentials.json" />
+    <None Include="packages.config" />
+    <None Include="Resources\Integrations\AzureDevOps\ado.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\properties\report.config" />
+    <None Include="Resources\properties\browser.config" />
+    <None Include="HarrodsAppConfig.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\SkriptmateArtefacts\Test Order Tracker.xlsx" />
+    <None Include="ScriptmateConfig.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sample.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TAF-GenericUtility\TAF-GenericUtility.csproj">
+      <Project>{d684fe38-95e7-4842-a753-ac1fc1186dea}</Project>
+      <Name>TAF-GenericUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TAF-Integration\TAF-Integration.csproj">
+      <Project>{73c49c24-9a8a-4281-a980-600c706f9d3e}</Project>
+      <Name>TAF-Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TAF-Reporting\TAF-Reporting.csproj">
+      <Project>{a6781d0b-88e4-4854-922b-fe0df51e953f}</Project>
+      <Name>TAF-Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TAF-SAP\TAF-SAP.csproj">
+      <Project>{932a714b-d806-4986-8b3b-ae2432f92992}</Project>
+      <Name>TAF-SAP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TAF-Web\TAF-Web.csproj">
+      <Project>{224a69d3-878d-4922-8a04-72dbfaa90421}</Project>
+      <Name>TAF-Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="allure-results\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="Extent-Report\Report04013243\" />
+    <Folder Include="Extent-Report\Report05093249\" />
+    <Folder Include="Files\" />
+    <Folder Include="obj\Debug\" />
+    <Folder Include="Resources\AllureXml\" />
+    <Folder Include="Resources\Screenshots\" />
+    <Folder Include="ScriptmateReport\Allure\" />
+    <Folder Include="ScriptmateReport\Extent\" />
+    <Folder Include="ScriptmateReport\STORM\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Allure.Commons.dll" />
+    <Content Include="bin\Debug\appium-dotnet-driver.dll" />
+    <Content Include="bin\Debug\appium-dotnet-driver.xml" />
+    <Content Include="bin\Debug\BoDi.dll" />
+    <Content Include="bin\Debug\BoDi.pdb" />
+    <Content Include="bin\Debug\Castle.Core.dll" />
+    <Content Include="bin\Debug\Castle.Core.xml" />
+    <Content Include="bin\Debug\chromedriver.exe" />
+    <Content Include="bin\Debug\Drivers\chromedriver.exe" />
+    <Content Include="bin\Debug\Drivers\geckodriver.exe" />
+    <Content Include="bin\Debug\Drivers\IEDriverServer.exe" />
+    <Content Include="bin\Debug\Drivers\phantomjs.exe" />
+    <Content Include="bin\Debug\Drivers\Winium.Desktop.Driver.exe" />
+    <Content Include="bin\Debug\Gherkin.dll" />
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.xml" />
+    <Content Include="bin\Debug\log4net.dll" />
+    <Content Include="bin\Debug\log4net.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" />
+    <Content Include="bin\Debug\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Debug\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\Debug\netstandard.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\NPOI.dll" />
+    <Content Include="bin\Debug\NPOI.OOXML.dll" />
+    <Content Include="bin\Debug\NPOI.OpenXml4Net.dll" />
+    <Content Include="bin\Debug\NPOI.OpenXmlFormats.dll" />
+    <Content Include="bin\Debug\nunit.engine.api.dll" />
+    <Content Include="bin\Debug\nunit.engine.dll" />
+    <Content Include="bin\Debug\nunit.framework.dll" />
+    <Content Include="bin\Debug\nunit.framework.pdb" />
+    <Content Include="bin\Debug\nunit.framework.xml" />
+    <Content Include="bin\Debug\NUnit3.TestAdapter.dll" />
+    <Content Include="bin\Debug\NUnit3.TestAdapter.pdb" />
+    <Content Include="bin\Debug\RestSharp.dll" />
+    <Content Include="bin\Debug\RestSharp.xml" />
+    <Content Include="bin\Debug\Selenium.WebDriverBackedSelenium.dll" />
+    <Content Include="bin\Debug\Selenium.WebDriverBackedSelenium.xml" />
+    <Content Include="bin\Debug\SeleniumExtras.PageObjects.dll" />
+    <Content Include="bin\Debug\SeleniumExtras.WaitHelpers.dll" />
+    <Content Include="bin\Debug\System.AppContext.dll" />
+    <Content Include="bin\Debug\System.CodeDom.dll" />
+    <Content Include="bin\Debug\System.CodeDom.xml" />
+    <Content Include="bin\Debug\System.Collections.Concurrent.dll" />
+    <Content Include="bin\Debug\System.Collections.dll" />
+    <Content Include="bin\Debug\System.Collections.NonGeneric.dll" />
+    <Content Include="bin\Debug\System.Collections.Specialized.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.EventBasedAsync.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.Primitives.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.TypeConverter.dll" />
+    <Content Include="bin\Debug\System.Configuration.ConfigurationManager.dll" />
+    <Content Include="bin\Debug\System.Configuration.ConfigurationManager.xml" />
+    <Content Include="bin\Debug\System.Console.dll" />
+    <Content Include="bin\Debug\System.Data.Common.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Contracts.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Debug.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Process.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.TextWriterTraceListener.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Tools.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.TraceSource.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Tracing.dll" />
+    <Content Include="bin\Debug\System.Drawing.Primitives.dll" />
+    <Content Include="bin\Debug\System.Dynamic.Runtime.dll" />
+    <Content Include="bin\Debug\System.Globalization.Calendars.dll" />
+    <Content Include="bin\Debug\System.Globalization.dll" />
+    <Content Include="bin\Debug\System.Globalization.Extensions.dll" />
+    <Content Include="bin\Debug\System.IO.Compression.dll" />
+    <Content Include="bin\Debug\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\Debug\System.IO.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.Watcher.dll" />
+    <Content Include="bin\Debug\System.IO.IsolatedStorage.dll" />
+    <Content Include="bin\Debug\System.IO.MemoryMappedFiles.dll" />
+    <Content Include="bin\Debug\System.IO.Pipes.dll" />
+    <Content Include="bin\Debug\System.IO.UnmanagedMemoryStream.dll" />
+    <Content Include="bin\Debug\System.Linq.dll" />
+    <Content Include="bin\Debug\System.Linq.Expressions.dll" />
+    <Content Include="bin\Debug\System.Linq.Parallel.dll" />
+    <Content Include="bin\Debug\System.Linq.Queryable.dll" />
+    <Content Include="bin\Debug\System.Net.Http.dll" />
+    <Content Include="bin\Debug\System.Net.NameResolution.dll" />
+    <Content Include="bin\Debug\System.Net.NetworkInformation.dll" />
+    <Content Include="bin\Debug\System.Net.Ping.dll" />
+    <Content Include="bin\Debug\System.Net.Primitives.dll" />
+    <Content Include="bin\Debug\System.Net.Requests.dll" />
+    <Content Include="bin\Debug\System.Net.Security.dll" />
+    <Content Include="bin\Debug\System.Net.Sockets.dll" />
+    <Content Include="bin\Debug\System.Net.WebHeaderCollection.dll" />
+    <Content Include="bin\Debug\System.Net.WebSockets.Client.dll" />
+    <Content Include="bin\Debug\System.Net.WebSockets.dll" />
+    <Content Include="bin\Debug\System.ObjectModel.dll" />
+    <Content Include="bin\Debug\System.Reflection.dll" />
+    <Content Include="bin\Debug\System.Reflection.Extensions.dll" />
+    <Content Include="bin\Debug\System.Reflection.Primitives.dll" />
+    <Content Include="bin\Debug\System.Resources.Reader.dll" />
+    <Content Include="bin\Debug\System.Resources.ResourceManager.dll" />
+    <Content Include="bin\Debug\System.Resources.Writer.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.VisualC.dll" />
+    <Content Include="bin\Debug\System.Runtime.dll" />
+    <Content Include="bin\Debug\System.Runtime.Extensions.dll" />
+    <Content Include="bin\Debug\System.Runtime.Handles.dll" />
+    <Content Include="bin\Debug\System.Runtime.InteropServices.dll" />
+    <Content Include="bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\Debug\System.Runtime.Numerics.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Formatters.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Json.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Primitives.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Xml.dll" />
+    <Content Include="bin\Debug\System.Security.AccessControl.dll" />
+    <Content Include="bin\Debug\System.Security.AccessControl.xml" />
+    <Content Include="bin\Debug\System.Security.Claims.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Csp.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\Debug\System.Security.Permissions.dll" />
+    <Content Include="bin\Debug\System.Security.Permissions.xml" />
+    <Content Include="bin\Debug\System.Security.Principal.dll" />
+    <Content Include="bin\Debug\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\Debug\System.Security.Principal.Windows.xml" />
+    <Content Include="bin\Debug\System.Security.SecureString.dll" />
+    <Content Include="bin\Debug\System.Text.Encoding.dll" />
+    <Content Include="bin\Debug\System.Text.Encoding.Extensions.dll" />
+    <Content Include="bin\Debug\System.Text.RegularExpressions.dll" />
+    <Content Include="bin\Debug\System.Threading.dll" />
+    <Content Include="bin\Debug\System.Threading.Overlapped.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Parallel.dll" />
+    <Content Include="bin\Debug\System.Threading.Thread.dll" />
+    <Content Include="bin\Debug\System.Threading.ThreadPool.dll" />
+    <Content Include="bin\Debug\System.Threading.Timer.dll" />
+    <Content Include="bin\Debug\System.ValueTuple.dll" />
+    <Content Include="bin\Debug\System.Web.Helpers.dll" />
+    <Content Include="bin\Debug\System.Web.Helpers.xml" />
+    <Content Include="bin\Debug\System.Web.Razor.dll" />
+    <Content Include="bin\Debug\System.Web.Razor.xml" />
+    <Content Include="bin\Debug\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\Debug\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\Debug\System.Web.WebPages.dll" />
+    <Content Include="bin\Debug\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\Debug\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\Debug\System.Web.WebPages.xml" />
+    <Content Include="bin\Debug\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\Debug\System.Xml.XDocument.dll" />
+    <Content Include="bin\Debug\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\Debug\System.Xml.XmlSerializer.dll" />
+    <Content Include="bin\Debug\System.Xml.XPath.dll" />
+    <Content Include="bin\Debug\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\Debug\TAF-GenericUtility.dll" />
+    <Content Include="bin\Debug\TAF-GenericUtility.pdb" />
+    <Content Include="bin\Debug\TAF-Mobile.dll" />
+    <Content Include="bin\Debug\TAF-Mobile.pdb" />
+    <Content Include="bin\Debug\TAF-WebServices.dll" />
+    <Content Include="bin\Debug\TAF-WebServices.pdb" />
+    <Content Include="bin\Debug\TechTalk.SpecFlow.dll" />
+    <Content Include="bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll" />
+    <Content Include="bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.pdb" />
+    <Content Include="bin\Debug\TechTalk.SpecFlow.pdb" />
+    <Content Include="bin\Debug\Utf8Json.dll" />
+    <Content Include="bin\Debug\Utf8Json.xml" />
+    <Content Include="bin\Debug\WebDriver.dll" />
+    <Content Include="bin\Debug\WebDriver.Support.dll" />
+    <Content Include="bin\Debug\WebDriver.Support.xml" />
+    <Content Include="bin\Debug\WebDriver.xml" />
+    <Content Include="Drivers\chromedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\geckodriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\IEDriverServer.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\phantomjs.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Drivers\Winium.Desktop.Driver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Extent-Report\Report02021539\dashboard.html" />
+    <Content Include="Extent-Report\Report02021539\index.html" />
+    <Content Include="Extent-Report\Report02022033\dashboard.html" />
+    <Content Include="Extent-Report\Report02022033\index.html" />
+    <Content Include="Extent-Report\Report02022242\dashboard.html" />
+    <Content Include="Extent-Report\Report02022242\index.html" />
+    <Content Include="Extent-Report\Report02023753\dashboard.html" />
+    <Content Include="Extent-Report\Report02023753\index.html" />
+    <Content Include="Extent-Report\Report02024310\dashboard.html" />
+    <Content Include="Extent-Report\Report02024310\index.html" />
+    <Content Include="Extent-Report\Report02050013\dashboard.html" />
+    <Content Include="Extent-Report\Report02050013\index.html" />
+    <Content Include="Extent-Report\Report02050743\dashboard.html" />
+    <Content Include="Extent-Report\Report02050743\index.html" />
+    <Content Include="Extent-Report\Report02050941\dashboard.html" />
+    <Content Include="Extent-Report\Report02050941\index.html" />
+    <Content Include="Extent-Report\Report02051119\dashboard.html" />
+    <Content Include="Extent-Report\Report02051119\index.html" />
+    <Content Include="Extent-Report\Report02051251\dashboard.html" />
+    <Content Include="Extent-Report\Report02051251\index.html" />
+    <Content Include="Extent-Report\Report02051308\dashboard.html" />
+    <Content Include="Extent-Report\Report02051308\index.html" />
+    <Content Include="Extent-Report\Report02051423\dashboard.html" />
+    <Content Include="Extent-Report\Report02051423\index.html" />
+    <Content Include="Extent-Report\Report02051424\dashboard.html" />
+    <Content Include="Extent-Report\Report02051424\index.html" />
+    <Content Include="Extent-Report\Report02051529\dashboard.html" />
+    <Content Include="Extent-Report\Report02051529\index.html" />
+    <Content Include="Extent-Report\Report02051657\dashboard.html" />
+    <Content Include="Extent-Report\Report02051657\index.html" />
+    <Content Include="Extent-Report\Report02052214\dashboard.html" />
+    <Content Include="Extent-Report\Report02052214\index.html" />
+    <Content Include="Extent-Report\Report02052440\dashboard.html" />
+    <Content Include="Extent-Report\Report02052440\index.html" />
+    <Content Include="Extent-Report\Report02052536\dashboard.html" />
+    <Content Include="Extent-Report\Report02052536\index.html" />
+    <Content Include="Extent-Report\Report02053230\dashboard.html" />
+    <Content Include="Extent-Report\Report02053230\index.html" />
+    <Content Include="Extent-Report\Report02053632\dashboard.html" />
+    <Content Include="Extent-Report\Report02053632\index.html" />
+    <Content Include="Extent-Report\Report02053636\dashboard.html" />
+    <Content Include="Extent-Report\Report02053636\index.html" />
+    <Content Include="Extent-Report\Report02053822\dashboard.html" />
+    <Content Include="Extent-Report\Report02053822\index.html" />
+    <Content Include="Extent-Report\Report02054200\dashboard.html" />
+    <Content Include="Extent-Report\Report02054200\index.html" />
+    <Content Include="Extent-Report\Report02054520\dashboard.html" />
+    <Content Include="Extent-Report\Report02054520\index.html" />
+    <Content Include="Extent-Report\Report02054737\dashboard.html" />
+    <Content Include="Extent-Report\Report02054737\index.html" />
+    <Content Include="Extent-Report\Report02054930\dashboard.html" />
+    <Content Include="Extent-Report\Report02054930\index.html" />
+    <Content Include="Extent-Report\Report02055237\dashboard.html" />
+    <Content Include="Extent-Report\Report02055237\index.html" />
+    <Content Include="Extent-Report\Report02055520\dashboard.html" />
+    <Content Include="Extent-Report\Report02055520\index.html" />
+    <Content Include="Extent-Report\Report02055617\dashboard.html" />
+    <Content Include="Extent-Report\Report02055617\index.html" />
+    <Content Include="Extent-Report\Report02055853\dashboard.html" />
+    <Content Include="Extent-Report\Report02055853\index.html" />
+    <Content Include="Extent-Report\Report02060044\dashboard.html" />
+    <Content Include="Extent-Report\Report02060044\index.html" />
+    <Content Include="Extent-Report\Report02060045\dashboard.html" />
+    <Content Include="Extent-Report\Report02060045\index.html" />
+    <Content Include="Extent-Report\Report02060123\dashboard.html" />
+    <Content Include="Extent-Report\Report02060123\index.html" />
+    <Content Include="Extent-Report\Report02060211\dashboard.html" />
+    <Content Include="Extent-Report\Report02060211\index.html" />
+    <Content Include="Extent-Report\Report02060214\dashboard.html" />
+    <Content Include="Extent-Report\Report02060214\index.html" />
+    <Content Include="Extent-Report\Report02060328\dashboard.html" />
+    <Content Include="Extent-Report\Report02060328\index.html" />
+    <Content Include="Extent-Report\Report02060518\dashboard.html" />
+    <Content Include="Extent-Report\Report02060518\index.html" />
+    <Content Include="Extent-Report\Report02060715\dashboard.html" />
+    <Content Include="Extent-Report\Report02060715\index.html" />
+    <Content Include="Extent-Report\Report02061053\dashboard.html" />
+    <Content Include="Extent-Report\Report02061053\index.html" />
+    <Content Include="Extent-Report\Report02061108\dashboard.html" />
+    <Content Include="Extent-Report\Report02061108\index.html" />
+    <Content Include="Extent-Report\Report02061701\dashboard.html" />
+    <Content Include="Extent-Report\Report02061701\index.html" />
+    <Content Include="Extent-Report\Report02061940\dashboard.html" />
+    <Content Include="Extent-Report\Report02061940\index.html" />
+    <Content Include="Extent-Report\Report02062057\dashboard.html" />
+    <Content Include="Extent-Report\Report02062057\index.html" />
+    <Content Include="Extent-Report\Report02062108\dashboard.html" />
+    <Content Include="Extent-Report\Report02062108\index.html" />
+    <Content Include="Extent-Report\Report02062144\dashboard.html" />
+    <Content Include="Extent-Report\Report02062144\index.html" />
+    <Content Include="Extent-Report\Report02062313\dashboard.html" />
+    <Content Include="Extent-Report\Report02062313\index.html" />
+    <Content Include="Extent-Report\Report02062326\dashboard.html" />
+    <Content Include="Extent-Report\Report02062326\index.html" />
+    <Content Include="Extent-Report\Report02062327\dashboard.html" />
+    <Content Include="Extent-Report\Report02062327\index.html" />
+    <Content Include="Extent-Report\Report02062403\dashboard.html" />
+    <Content Include="Extent-Report\Report02062403\index.html" />
+    <Content Include="Extent-Report\Report02062514\dashboard.html" />
+    <Content Include="Extent-Report\Report02062514\index.html" />
+    <Content Include="Extent-Report\Report02062534\dashboard.html" />
+    <Content Include="Extent-Report\Report02062534\index.html" />
+    <Content Include="Extent-Report\Report02062600\dashboard.html" />
+    <Content Include="Extent-Report\Report02062600\index.html" />
+    <Content Include="Extent-Report\Report02062613\dashboard.html" />
+    <Content Include="Extent-Report\Report02062613\index.html" />
+    <Content Include="Extent-Report\Report02062731\dashboard.html" />
+    <Content Include="Extent-Report\Report02062731\index.html" />
+    <Content Include="Extent-Report\Report02062949\dashboard.html" />
+    <Content Include="Extent-Report\Report02062949\index.html" />
+    <Content Include="Extent-Report\Report02063135\dashboard.html" />
+    <Content Include="Extent-Report\Report02063135\index.html" />
+    <Content Include="Extent-Report\Report02063148\dashboard.html" />
+    <Content Include="Extent-Report\Report02063148\index.html" />
+    <Content Include="Extent-Report\Report02063621\dashboard.html" />
+    <Content Include="Extent-Report\Report02063621\index.html" />
+    <Content Include="Extent-Report\Report02064641\dashboard.html" />
+    <Content Include="Extent-Report\Report02064641\index.html" />
+    <Content Include="Extent-Report\Report02064707\dashboard.html" />
+    <Content Include="Extent-Report\Report02064707\index.html" />
+    <Content Include="Extent-Report\Report02064919\dashboard.html" />
+    <Content Include="Extent-Report\Report02064919\index.html" />
+    <Content Include="Extent-Report\Report02065044\dashboard.html" />
+    <Content Include="Extent-Report\Report02065044\index.html" />
+    <Content Include="Extent-Report\Report02065045\dashboard.html" />
+    <Content Include="Extent-Report\Report02065045\index.html" />
+    <Content Include="Extent-Report\Report02065321\dashboard.html" />
+    <Content Include="Extent-Report\Report02065321\index.html" />
+    <Content Include="Extent-Report\Report02065619\dashboard.html" />
+    <Content Include="Extent-Report\Report02065619\index.html" />
+    <Content Include="Extent-Report\Report02065758\dashboard.html" />
+    <Content Include="Extent-Report\Report02065758\index.html" />
+    <Content Include="Extent-Report\Report02070041\dashboard.html" />
+    <Content Include="Extent-Report\Report02070041\index.html" />
+    <Content Include="Extent-Report\Report02070159\dashboard.html" />
+    <Content Include="Extent-Report\Report02070159\index.html" />
+    <Content Include="Extent-Report\Report02070705\dashboard.html" />
+    <Content Include="Extent-Report\Report02070705\index.html" />
+    <Content Include="Extent-Report\Report02070959\dashboard.html" />
+    <Content Include="Extent-Report\Report02070959\index.html" />
+    <Content Include="Extent-Report\Report02071001\dashboard.html" />
+    <Content Include="Extent-Report\Report02071001\index.html" />
+    <Content Include="Extent-Report\Report02071042\dashboard.html" />
+    <Content Include="Extent-Report\Report02071042\index.html" />
+    <Content Include="Extent-Report\Report02071504\dashboard.html" />
+    <Content Include="Extent-Report\Report02071504\index.html" />
+    <Content Include="Extent-Report\Report02071530\dashboard.html" />
+    <Content Include="Extent-Report\Report02071530\index.html" />
+    <Content Include="Extent-Report\Report02071727\dashboard.html" />
+    <Content Include="Extent-Report\Report02071727\index.html" />
+    <Content Include="Extent-Report\Report02071747\dashboard.html" />
+    <Content Include="Extent-Report\Report02071747\index.html" />
+    <Content Include="Extent-Report\Report02071824\dashboard.html" />
+    <Content Include="Extent-Report\Report02071824\index.html" />
+    <Content Include="Extent-Report\Report02071903\dashboard.html" />
+    <Content Include="Extent-Report\Report02071903\index.html" />
+    <Content Include="Extent-Report\Report02071951\dashboard.html" />
+    <Content Include="Extent-Report\Report02071951\index.html" />
+    <Content Include="Extent-Report\Report02072129\dashboard.html" />
+    <Content Include="Extent-Report\Report02072129\index.html" />
+    <Content Include="Extent-Report\Report02072206\dashboard.html" />
+    <Content Include="Extent-Report\Report02072206\index.html" />
+    <Content Include="Extent-Report\Report02072335\dashboard.html" />
+    <Content Include="Extent-Report\Report02072335\index.html" />
+    <Content Include="Extent-Report\Report02072715\dashboard.html" />
+    <Content Include="Extent-Report\Report02072715\index.html" />
+    <Content Include="Extent-Report\Report02072748\dashboard.html" />
+    <Content Include="Extent-Report\Report02072748\index.html" />
+    <Content Include="Extent-Report\Report02072943\dashboard.html" />
+    <Content Include="Extent-Report\Report02072943\index.html" />
+    <Content Include="Extent-Report\Report02072945\dashboard.html" />
+    <Content Include="Extent-Report\Report02072945\index.html" />
+    <Content Include="Extent-Report\Report02073002\dashboard.html" />
+    <Content Include="Extent-Report\Report02073002\index.html" />
+    <Content Include="Extent-Report\Report02073041\dashboard.html" />
+    <Content Include="Extent-Report\Report02073041\index.html" />
+    <Content Include="Extent-Report\Report02073150\dashboard.html" />
+    <Content Include="Extent-Report\Report02073150\index.html" />
+    <Content Include="Extent-Report\Report02073214\dashboard.html" />
+    <Content Include="Extent-Report\Report02073214\index.html" />
+    <Content Include="Extent-Report\Report02073603\dashboard.html" />
+    <Content Include="Extent-Report\Report02073603\index.html" />
+    <Content Include="Extent-Report\Report02073721\dashboard.html" />
+    <Content Include="Extent-Report\Report02073721\index.html" />
+    <Content Include="Extent-Report\Report02073837\dashboard.html" />
+    <Content Include="Extent-Report\Report02073837\index.html" />
+    <Content Include="Extent-Report\Report02073931\dashboard.html" />
+    <Content Include="Extent-Report\Report02073931\index.html" />
+    <Content Include="Extent-Report\Report02074150\dashboard.html" />
+    <Content Include="Extent-Report\Report02074150\index.html" />
+    <Content Include="Extent-Report\Report02074339\dashboard.html" />
+    <Content Include="Extent-Report\Report02074339\index.html" />
+    <Content Include="Extent-Report\Report02074518\dashboard.html" />
+    <Content Include="Extent-Report\Report02074518\index.html" />
+    <Content Include="Extent-Report\Report02074715\dashboard.html" />
+    <Content Include="Extent-Report\Report02074715\index.html" />
+    <Content Include="Extent-Report\Report02074721\dashboard.html" />
+    <Content Include="Extent-Report\Report02074721\index.html" />
+    <Content Include="Extent-Report\Report02074942\dashboard.html" />
+    <Content Include="Extent-Report\Report02074942\index.html" />
+    <Content Include="Extent-Report\Report02075052\dashboard.html" />
+    <Content Include="Extent-Report\Report02075052\index.html" />
+    <Content Include="Extent-Report\Report02075215\dashboard.html" />
+    <Content Include="Extent-Report\Report02075215\index.html" />
+    <Content Include="Extent-Report\Report02075424\dashboard.html" />
+    <Content Include="Extent-Report\Report02075424\index.html" />
+    <Content Include="Extent-Report\Report02075602\dashboard.html" />
+    <Content Include="Extent-Report\Report02075602\index.html" />
+    <Content Include="Extent-Report\Report02075612\dashboard.html" />
+    <Content Include="Extent-Report\Report02075612\index.html" />
+    <Content Include="Extent-Report\Report02075722\dashboard.html" />
+    <Content Include="Extent-Report\Report02075722\index.html" />
+    <Content Include="Extent-Report\Report02075746\dashboard.html" />
+    <Content Include="Extent-Report\Report02075746\index.html" />
+    <Content Include="Extent-Report\Report02075749\dashboard.html" />
+    <Content Include="Extent-Report\Report02075749\index.html" />
+    <Content Include="Extent-Report\Report02075809\dashboard.html" />
+    <Content Include="Extent-Report\Report02075809\index.html" />
+    <Content Include="Extent-Report\Report02075951\dashboard.html" />
+    <Content Include="Extent-Report\Report02075951\index.html" />
+    <Content Include="Extent-Report\Report02080113\dashboard.html" />
+    <Content Include="Extent-Report\Report02080113\index.html" />
+    <Content Include="Extent-Report\Report02080218\dashboard.html" />
+    <Content Include="Extent-Report\Report02080218\index.html" />
+    <Content Include="Extent-Report\Report02080439\dashboard.html" />
+    <Content Include="Extent-Report\Report02080439\index.html" />
+    <Content Include="Extent-Report\Report02080443\dashboard.html" />
+    <Content Include="Extent-Report\Report02080443\index.html" />
+    <Content Include="Extent-Report\Report02080756\dashboard.html" />
+    <Content Include="Extent-Report\Report02080756\index.html" />
+    <Content Include="Extent-Report\Report02080836\dashboard.html" />
+    <Content Include="Extent-Report\Report02080836\index.html" />
+    <Content Include="Extent-Report\Report02080950\dashboard.html" />
+    <Content Include="Extent-Report\Report02080950\index.html" />
+    <Content Include="Extent-Report\Report02081020\dashboard.html" />
+    <Content Include="Extent-Report\Report02081020\index.html" />
+    <Content Include="Extent-Report\Report02081231\dashboard.html" />
+    <Content Include="Extent-Report\Report02081231\index.html" />
+    <Content Include="Extent-Report\Report02081244\dashboard.html" />
+    <Content Include="Extent-Report\Report02081244\index.html" />
+    <Content Include="Extent-Report\Report02081320\dashboard.html" />
+    <Content Include="Extent-Report\Report02081320\index.html" />
+    <Content Include="Extent-Report\Report02081338\dashboard.html" />
+    <Content Include="Extent-Report\Report02081338\index.html" />
+    <Content Include="Extent-Report\Report02081445\dashboard.html" />
+    <Content Include="Extent-Report\Report02081445\index.html" />
+    <Content Include="Extent-Report\Report02081522\dashboard.html" />
+    <Content Include="Extent-Report\Report02081522\index.html" />
+    <Content Include="Extent-Report\Report02081824\dashboard.html" />
+    <Content Include="Extent-Report\Report02081824\index.html" />
+    <Content Include="Extent-Report\Report02082105\dashboard.html" />
+    <Content Include="Extent-Report\Report02082105\index.html" />
+    <Content Include="Extent-Report\Report02082343\dashboard.html" />
+    <Content Include="Extent-Report\Report02082343\index.html" />
+    <Content Include="Extent-Report\Report02082513\dashboard.html" />
+    <Content Include="Extent-Report\Report02082513\index.html" />
+    <Content Include="Extent-Report\Report02082539\dashboard.html" />
+    <Content Include="Extent-Report\Report02082539\index.html" />
+    <Content Include="Extent-Report\Report02082742\dashboard.html" />
+    <Content Include="Extent-Report\Report02082742\index.html" />
+    <Content Include="Extent-Report\Report02082943\dashboard.html" />
+    <Content Include="Extent-Report\Report02082943\index.html" />
+    <Content Include="Extent-Report\Report02083202\dashboard.html" />
+    <Content Include="Extent-Report\Report02083202\index.html" />
+    <Content Include="Extent-Report\Report02083303\dashboard.html" />
+    <Content Include="Extent-Report\Report02083303\index.html" />
+    <Content Include="Extent-Report\Report02083404\dashboard.html" />
+    <Content Include="Extent-Report\Report02083404\index.html" />
+    <Content Include="Extent-Report\Report02084109\dashboard.html" />
+    <Content Include="Extent-Report\Report02084109\index.html" />
+    <Content Include="Extent-Report\Report02084136\dashboard.html" />
+    <Content Include="Extent-Report\Report02084136\index.html" />
+    <Content Include="Extent-Report\Report02084924\dashboard.html" />
+    <Content Include="Extent-Report\Report02084924\index.html" />
+    <Content Include="Extent-Report\Report02085342\dashboard.html" />
+    <Content Include="Extent-Report\Report02085342\index.html" />
+    <Content Include="Extent-Report\Report02085501\dashboard.html" />
+    <Content Include="Extent-Report\Report02085501\index.html" />
+    <Content Include="Extent-Report\Report02085802\dashboard.html" />
+    <Content Include="Extent-Report\Report02085802\index.html" />
+    <Content Include="Extent-Report\Report02091107\dashboard.html" />
+    <Content Include="Extent-Report\Report02091107\index.html" />
+    <Content Include="Extent-Report\Report02091557\dashboard.html" />
+    <Content Include="Extent-Report\Report02091557\index.html" />
+    <Content Include="Extent-Report\Report02092457\dashboard.html" />
+    <Content Include="Extent-Report\Report02092457\index.html" />
+    <Content Include="Extent-Report\Report02093002\dashboard.html" />
+    <Content Include="Extent-Report\Report02093002\index.html" />
+    <Content Include="Extent-Report\Report02093405\dashboard.html" />
+    <Content Include="Extent-Report\Report02093405\index.html" />
+    <Content Include="Extent-Report\Report02093723\dashboard.html" />
+    <Content Include="Extent-Report\Report02093723\index.html" />
+    <Content Include="Extent-Report\Report02094934\dashboard.html" />
+    <Content Include="Extent-Report\Report02094934\index.html" />
+    <Content Include="Extent-Report\Report02122207\dashboard.html" />
+    <Content Include="Extent-Report\Report02122207\index.html" />
+    <Content Include="Extent-Report\Report02122843\dashboard.html" />
+    <Content Include="Extent-Report\Report02122843\index.html" />
+    <Content Include="Extent-Report\Report02124009\dashboard.html" />
+    <Content Include="Extent-Report\Report02124009\index.html" />
+    <Content Include="Extent-Report\Report03070419\dashboard.html" />
+    <Content Include="Extent-Report\Report03070419\index.html" />
+    <Content Include="Extent-Report\Report03075045\dashboard.html" />
+    <Content Include="Extent-Report\Report03075045\index.html" />
+    <Content Include="Extent-Report\Report03075353\dashboard.html" />
+    <Content Include="Extent-Report\Report03075353\index.html" />
+    <Content Include="Extent-Report\Report03075631\dashboard.html" />
+    <Content Include="Extent-Report\Report03075631\index.html" />
+    <Content Include="Extent-Report\Report03084636\dashboard.html" />
+    <Content Include="Extent-Report\Report03084636\index.html" />
+    <Content Include="Extent-Report\Report03120559\dashboard.html" />
+    <Content Include="Extent-Report\Report03120559\index.html" />
+    <Content Include="Extent-Report\Report03150144\dashboard.html" />
+    <Content Include="Extent-Report\Report03150144\index.html" />
+    <Content Include="Extent-Report\Report03150602\dashboard.html" />
+    <Content Include="Extent-Report\Report03150602\index.html" />
+    <Content Include="Extent-Report\Report03150804\dashboard.html" />
+    <Content Include="Extent-Report\Report03150804\index.html" />
+    <Content Include="Extent-Report\Report03151033\dashboard.html" />
+    <Content Include="Extent-Report\Report03151033\index.html" />
+    <Content Include="Extent-Report\Report03151219\dashboard.html" />
+    <Content Include="Extent-Report\Report03151219\index.html" />
+    <Content Include="Extent-Report\Report03151705\dashboard.html" />
+    <Content Include="Extent-Report\Report03151705\index.html" />
+    <Content Include="Extent-Report\Report03151719\dashboard.html" />
+    <Content Include="Extent-Report\Report03151719\index.html" />
+    <Content Include="Extent-Report\Report03152139\dashboard.html" />
+    <Content Include="Extent-Report\Report03152139\index.html" />
+    <Content Include="Extent-Report\Report03152410\dashboard.html" />
+    <Content Include="Extent-Report\Report03152410\index.html" />
+    <Content Include="Extent-Report\Report03152919\dashboard.html" />
+    <Content Include="Extent-Report\Report03152919\index.html" />
+    <Content Include="Extent-Report\Report03153220\dashboard.html" />
+    <Content Include="Extent-Report\Report03153220\index.html" />
+    <Content Include="Extent-Report\Report03153321\dashboard.html" />
+    <Content Include="Extent-Report\Report03153321\index.html" />
+    <Content Include="Extent-Report\Report03153434\dashboard.html" />
+    <Content Include="Extent-Report\Report03153434\index.html" />
+    <Content Include="Extent-Report\Report03153543\dashboard.html" />
+    <Content Include="Extent-Report\Report03153543\index.html" />
+    <Content Include="Extent-Report\Report03153824\dashboard.html" />
+    <Content Include="Extent-Report\Report03153824\index.html" />
+    <Content Include="Extent-Report\Report03154059\dashboard.html" />
+    <Content Include="Extent-Report\Report03154059\index.html" />
+    <Content Include="Extent-Report\Report03154412\dashboard.html" />
+    <Content Include="Extent-Report\Report03154412\index.html" />
+    <Content Include="Extent-Report\Report03154712\dashboard.html" />
+    <Content Include="Extent-Report\Report03154712\index.html" />
+    <Content Include="Extent-Report\Report03154723\dashboard.html" />
+    <Content Include="Extent-Report\Report03154723\index.html" />
+    <Content Include="Extent-Report\Report03154820\dashboard.html" />
+    <Content Include="Extent-Report\Report03154820\index.html" />
+    <Content Include="Extent-Report\Report03155002\dashboard.html" />
+    <Content Include="Extent-Report\Report03155002\index.html" />
+    <Content Include="Extent-Report\Report03155012\dashboard.html" />
+    <Content Include="Extent-Report\Report03155012\index.html" />
+    <Content Include="Extent-Report\Report03155311\dashboard.html" />
+    <Content Include="Extent-Report\Report03155311\index.html" />
+    <Content Include="Extent-Report\Report03155554\dashboard.html" />
+    <Content Include="Extent-Report\Report03155554\index.html" />
+    <Content Include="Extent-Report\Report03155641\dashboard.html" />
+    <Content Include="Extent-Report\Report03155641\index.html" />
+    <Content Include="Extent-Report\Report03155946\dashboard.html" />
+    <Content Include="Extent-Report\Report03155946\index.html" />
+    <Content Include="Extent-Report\Report03204246\dashboard.html" />
+    <Content Include="Extent-Report\Report03204246\index.html" />
+    <Content Include="Extent-Report\Report03205005\dashboard.html" />
+    <Content Include="Extent-Report\Report03205005\index.html" />
+    <Content Include="Extent-Report\Report03205632\dashboard.html" />
+    <Content Include="Extent-Report\Report03205632\index.html" />
+    <Content Include="Extent-Report\Report03210028\dashboard.html" />
+    <Content Include="Extent-Report\Report03210028\index.html" />
+    <Content Include="Extent-Report\Report03210257\dashboard.html" />
+    <Content Include="Extent-Report\Report03210257\index.html" />
+    <Content Include="Extent-Report\Report03210718\dashboard.html" />
+    <Content Include="Extent-Report\Report03210718\index.html" />
+    <Content Include="Extent-Report\Report03210945\dashboard.html" />
+    <Content Include="Extent-Report\Report03210945\index.html" />
+    <Content Include="Extent-Report\Report03211006\dashboard.html" />
+    <Content Include="Extent-Report\Report03211006\index.html" />
+    <Content Include="Extent-Report\Report03211236\dashboard.html" />
+    <Content Include="Extent-Report\Report03211236\index.html" />
+    <Content Include="Extent-Report\Report03211404\dashboard.html" />
+    <Content Include="Extent-Report\Report03211404\index.html" />
+    <Content Include="Extent-Report\Report03211411\dashboard.html" />
+    <Content Include="Extent-Report\Report03211411\index.html" />
+    <Content Include="Extent-Report\Report03211611\dashboard.html" />
+    <Content Include="Extent-Report\Report03211611\index.html" />
+    <Content Include="Extent-Report\Report03211950\dashboard.html" />
+    <Content Include="Extent-Report\Report03211950\index.html" />
+    <Content Include="Extent-Report\Report03212002\dashboard.html" />
+    <Content Include="Extent-Report\Report03212002\index.html" />
+    <Content Include="Extent-Report\Report03212117\dashboard.html" />
+    <Content Include="Extent-Report\Report03212117\index.html" />
+    <Content Include="Extent-Report\Report03212208\dashboard.html" />
+    <Content Include="Extent-Report\Report03212208\index.html" />
+    <Content Include="Extent-Report\Report03212340\dashboard.html" />
+    <Content Include="Extent-Report\Report03212340\index.html" />
+    <Content Include="Extent-Report\Report03212432\dashboard.html" />
+    <Content Include="Extent-Report\Report03212432\index.html" />
+    <Content Include="Extent-Report\Report03213001\dashboard.html" />
+    <Content Include="Extent-Report\Report03213001\index.html" />
+    <Content Include="Extent-Report\Report03213113\dashboard.html" />
+    <Content Include="Extent-Report\Report03213113\index.html" />
+    <Content Include="Extent-Report\Report03213133\dashboard.html" />
+    <Content Include="Extent-Report\Report03213133\index.html" />
+    <Content Include="Extent-Report\Report03213215\dashboard.html" />
+    <Content Include="Extent-Report\Report03213215\index.html" />
+    <Content Include="Extent-Report\Report03213309\dashboard.html" />
+    <Content Include="Extent-Report\Report03213309\index.html" />
+    <Content Include="Extent-Report\Report03213324\dashboard.html" />
+    <Content Include="Extent-Report\Report03213324\index.html" />
+    <Content Include="Extent-Report\Report03213623\dashboard.html" />
+    <Content Include="Extent-Report\Report03213623\index.html" />
+    <Content Include="Extent-Report\Report03213637\dashboard.html" />
+    <Content Include="Extent-Report\Report03213637\index.html" />
+    <Content Include="Extent-Report\Report03213711\dashboard.html" />
+    <Content Include="Extent-Report\Report03213711\index.html" />
+    <Content Include="Extent-Report\Report03213748\dashboard.html" />
+    <Content Include="Extent-Report\Report03213748\index.html" />
+    <Content Include="Extent-Report\Report03213852\dashboard.html" />
+    <Content Include="Extent-Report\Report03213852\index.html" />
+    <Content Include="Extent-Report\Report03213949\dashboard.html" />
+    <Content Include="Extent-Report\Report03213949\index.html" />
+    <Content Include="Extent-Report\Report03214004\dashboard.html" />
+    <Content Include="Extent-Report\Report03214004\index.html" />
+    <Content Include="Extent-Report\Report03214040\dashboard.html" />
+    <Content Include="Extent-Report\Report03214040\index.html" />
+    <Content Include="Extent-Report\Report03214148\dashboard.html" />
+    <Content Include="Extent-Report\Report03214148\index.html" />
+    <Content Include="Extent-Report\Report03214236\dashboard.html" />
+    <Content Include="Extent-Report\Report03214236\index.html" />
+    <Content Include="Extent-Report\Report03214253\dashboard.html" />
+    <Content Include="Extent-Report\Report03214253\index.html" />
+    <Content Include="Extent-Report\Report03214254\dashboard.html" />
+    <Content Include="Extent-Report\Report03214254\index.html" />
+    <Content Include="Extent-Report\Report03214605\dashboard.html" />
+    <Content Include="Extent-Report\Report03214605\index.html" />
+    <Content Include="Extent-Report\Report03214834\dashboard.html" />
+    <Content Include="Extent-Report\Report03214834\index.html" />
+    <Content Include="Extent-Report\Report03215056\dashboard.html" />
+    <Content Include="Extent-Report\Report03215056\index.html" />
+    <Content Include="Extent-Report\Report03215116\dashboard.html" />
+    <Content Include="Extent-Report\Report03215116\index.html" />
+    <Content Include="Extent-Report\Report03215410\dashboard.html" />
+    <Content Include="Extent-Report\Report03215410\index.html" />
+    <Content Include="Extent-Report\Report03215744\dashboard.html" />
+    <Content Include="Extent-Report\Report03215744\index.html" />
+    <Content Include="Extent-Report\Report03220105\dashboard.html" />
+    <Content Include="Extent-Report\Report03220105\index.html" />
+    <Content Include="Extent-Report\Report03220106\dashboard.html" />
+    <Content Include="Extent-Report\Report03220106\index.html" />
+    <Content Include="Extent-Report\Report03220300\dashboard.html" />
+    <Content Include="Extent-Report\Report03220300\index.html" />
+    <Content Include="Extent-Report\Report03220510\dashboard.html" />
+    <Content Include="Extent-Report\Report03220510\index.html" />
+    <Content Include="Extent-Report\Report03220701\dashboard.html" />
+    <Content Include="Extent-Report\Report03220701\index.html" />
+    <Content Include="Extent-Report\Report03220744\dashboard.html" />
+    <Content Include="Extent-Report\Report03220744\index.html" />
+    <Content Include="Extent-Report\Report03221011\dashboard.html" />
+    <Content Include="Extent-Report\Report03221011\index.html" />
+    <Content Include="Extent-Report\Report03221108\dashboard.html" />
+    <Content Include="Extent-Report\Report03221108\index.html" />
+    <Content Include="Extent-Report\Report03221320\dashboard.html" />
+    <Content Include="Extent-Report\Report03221320\index.html" />
+    <Content Include="Extent-Report\Report03221503\dashboard.html" />
+    <Content Include="Extent-Report\Report03221503\index.html" />
+    <Content Include="Extent-Report\Report03221635\dashboard.html" />
+    <Content Include="Extent-Report\Report03221635\index.html" />
+    <Content Include="Extent-Report\Report03221737\dashboard.html" />
+    <Content Include="Extent-Report\Report03221737\index.html" />
+    <Content Include="Extent-Report\Report03221825\dashboard.html" />
+    <Content Include="Extent-Report\Report03221825\index.html" />
+    <Content Include="Extent-Report\Report03221933\dashboard.html" />
+    <Content Include="Extent-Report\Report03221933\index.html" />
+    <Content Include="Extent-Report\Report03222042\dashboard.html" />
+    <Content Include="Extent-Report\Report03222042\index.html" />
+    <Content Include="Extent-Report\Report03222203\dashboard.html" />
+    <Content Include="Extent-Report\Report03222203\index.html" />
+    <Content Include="Extent-Report\Report03222224\dashboard.html" />
+    <Content Include="Extent-Report\Report03222224\index.html" />
+    <Content Include="Extent-Report\Report03222248\dashboard.html" />
+    <Content Include="Extent-Report\Report03222248\index.html" />
+    <Content Include="Extent-Report\Report03222403\dashboard.html" />
+    <Content Include="Extent-Report\Report03222403\index.html" />
+    <Content Include="Extent-Report\Report03222514\dashboard.html" />
+    <Content Include="Extent-Report\Report03222514\index.html" />
+    <Content Include="Extent-Report\Report03222628\dashboard.html" />
+    <Content Include="Extent-Report\Report03222628\index.html" />
+    <Content Include="Extent-Report\Report03225522\dashboard.html" />
+    <Content Include="Extent-Report\Report03225522\index.html" />
+    <Content Include="Extent-Report\Report03225722\dashboard.html" />
+    <Content Include="Extent-Report\Report03225722\index.html" />
+    <Content Include="Extent-Report\Report03225835\dashboard.html" />
+    <Content Include="Extent-Report\Report03225835\index.html" />
+    <Content Include="Extent-Report\Report03225854\dashboard.html" />
+    <Content Include="Extent-Report\Report03225854\index.html" />
+    <Content Include="Extent-Report\Report05075925\dashboard.html" />
+    <Content Include="Extent-Report\Report05075925\index.html" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\allure-commandline-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\allure-generator-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\allure-model-2.9.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\allure-plugin-api-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\allure1-model-1.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\commons-beanutils-1.9.3.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\commons-codec-1.11.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\commons-collections-3.2.2.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\commons-collections4-4.2.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\commons-io-2.6.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\commons-lang3-3.8.1.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\commons-logging-1.2.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\commons-text-1.3.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\flexmark-0.40.16.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\flexmark-util-0.40.16.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\freemarker-2.3.28.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\httpclient-4.5.7.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\httpcore-4.4.11.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jackson-annotations-2.9.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jackson-core-2.9.8.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jackson-databind-2.9.8.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jackson-dataformat-xml-2.9.8.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jackson-dataformat-yaml-2.9.8.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jackson-module-jaxb-annotations-2.9.8.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\javax.activation-api-1.2.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\javax.servlet-api-3.1.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jaxb-api-2.3.1.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jaxb-utils-1.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jcommander-1.72.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jetty-http-9.4.14.v20181114.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jetty-io-9.4.14.v20181114.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jetty-server-9.4.14.v20181114.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\jetty-util-9.4.14.v20181114.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\log4j-1.2.17.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\opencsv-4.5.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\properties-2.0.RC5.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\slf4j-api-1.7.25.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\slf4j-log4j12-1.7.25.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\snakeyaml-1.23.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\stax2-api-3.1.4.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\tika-core-1.20.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\lib\woodstox-core-5.0.3.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\behaviors-plugin\behaviors-plugin-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\behaviors-plugin\static\index.js" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\custom-logo-plugin\custom-logo-plugin-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\custom-logo-plugin\static\custom-logo.svg" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\custom-logo-plugin\static\styles.css" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\jira-plugin\jira-plugin-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\jira-plugin\lib\allure-jira-commons-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\jira-plugin\lib\converter-jackson-2.5.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\jira-plugin\lib\jackson-annotations-2.9.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\jira-plugin\lib\jackson-core-2.9.8.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\jira-plugin\lib\jackson-databind-2.9.8.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\jira-plugin\lib\okhttp-3.12.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\jira-plugin\lib\okio-1.15.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\jira-plugin\lib\retrofit-2.5.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\junit-xml-plugin\junit-xml-plugin-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\packages-plugin\packages-plugin-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\packages-plugin\static\index.js" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\README.txt" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\screen-diff-plugin\screen-diff-plugin-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\screen-diff-plugin\static\index.js" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\screen-diff-plugin\static\styles.css" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\trx-plugin\trx-plugin-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xctest-plugin\lib\xmlwise-1.2.11.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xctest-plugin\xctest-plugin-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xray-plugin\lib\allure-jira-commons-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xray-plugin\lib\converter-jackson-2.5.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xray-plugin\lib\jackson-annotations-2.9.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xray-plugin\lib\jackson-core-2.9.8.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xray-plugin\lib\jackson-databind-2.9.8.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xray-plugin\lib\okhttp-3.12.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xray-plugin\lib\okio-1.15.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xray-plugin\lib\retrofit-2.5.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xray-plugin\xray-plugin-2.13.0.jar" />
+    <Content Include="ExternalDll\allure-commandline-2.13.0\allure-2.13.0\plugins\xunit-xml-plugin\xunit-xml-plugin-2.13.0.jar" />
+    <Content Include="ExternalDll\Allure.Commons.dll" />
+    <Content Include="ExternalDll\sapfewse.dll" />
+    <Content Include="ExternalDll\saprotwr.net.dll" />
+    <Content Include="ExternalDll\Winium.WebDriver.dll" />
+    <Content Include="Report\dashboard.html" />
+    <Content Include="Report\index.html" />
+    <Content Include="Resources\Autoit\FFLogin.exe" />
+    <Content Include="Resources\DataFiles\HARRODS_REQ_060123TXT#E89MFLF3157XZ1.txt" />
+    <Content Include="Resources\DataFiles\HARRODS_REQ_070722TXT#E89MFLF3157XZ1.txt" />
+    <Content Include="Resources\DataFiles\QNB_Loyalty_06012023_1.txt" />
+    <Content Include="Resources\DataFiles\QNB_Loyalty_08072022_1.txt" />
+    <Content Include="Resources\SkriptmateArtefacts\Logo.png" />
+    <Content Include="Resources\SkriptmateArtefacts\styles.css" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.16.4.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.16.4.0\build\netstandard1.0\Microsoft.CodeCoverage.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.16.4.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.16.4.0\build\netstandard1.0\Microsoft.CodeCoverage.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.16.4.0\build\net40\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.16.4.0\build\net40\Microsoft.NET.Test.Sdk.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.16.4.0\build\net40\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.16.4.0\build\net40\Microsoft.NET.Test.Sdk.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.15.1\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.26.0\build\Selenium.WebDriver.GeckoDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.GeckoDriver.0.26.0\build\Selenium.WebDriver.GeckoDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.3.1.62\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.3.1.62\build\SpecFlow.targets'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.NUnit.3.1.62\build\SpecFlow.NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.NUnit.3.1.62\build\SpecFlow.NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.NUnit.3.1.62\build\SpecFlow.NUnit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.NUnit.3.1.62\build\SpecFlow.NUnit.targets'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.1.62\build\SpecFlow.Tools.MsBuild.Generation.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.3.1.62\build\SpecFlow.Tools.MsBuild.Generation.props'))" />
+    <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.1.62\build\SpecFlow.Tools.MsBuild.Generation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.3.1.62\build\SpecFlow.Tools.MsBuild.Generation.targets'))" />
+    <Error Condition="!Exists('..\packages\PactNet.Windows.2.5.2\build\PactNet.Windows.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PactNet.Windows.2.5.2\build\PactNet.Windows.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.CodeCoverage.16.4.0\build\netstandard1.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.16.4.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" />
+  <Import Project="..\packages\Microsoft.NET.Test.Sdk.16.4.0\build\net40\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.16.4.0\build\net40\Microsoft.NET.Test.Sdk.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.0.26.0\build\Selenium.WebDriver.GeckoDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.26.0\build\Selenium.WebDriver.GeckoDriver.targets')" />
+  <Import Project="..\packages\SpecFlow.3.1.62\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.3.1.62\build\SpecFlow.targets')" />
+  <Import Project="..\packages\SpecFlow.NUnit.3.1.62\build\SpecFlow.NUnit.targets" Condition="Exists('..\packages\SpecFlow.NUnit.3.1.62\build\SpecFlow.NUnit.targets')" />
+  <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.1.62\build\SpecFlow.Tools.MsBuild.Generation.targets" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.1.62\build\SpecFlow.Tools.MsBuild.Generation.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\PactNet.Windows.2.5.2\build\PactNet.Windows.targets" Condition="Exists('..\packages\PactNet.Windows.2.5.2\build\PactNet.Windows.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>if exist D:\ (
+if not exist D:\Allure mkdir D:\Allure
+if not exist D:\\Allure\\allure-results mkdir D:\\Allure\\allure-results
+)</PreBuildEvent>
+  </PropertyGroup>
+</Project>
